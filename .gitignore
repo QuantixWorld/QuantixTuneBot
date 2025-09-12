@@ -137,3 +137,10 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# dotenv
+.env
+
+# QuantixTune
+.review-state.json
+.spotify-token.json
