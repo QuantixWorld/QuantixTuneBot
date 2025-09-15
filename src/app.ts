@@ -3,6 +3,7 @@ import "dotenv/config";
 import authRouter from "./auth";
 import { runScheduler } from "./core/scheduler";
 import { recentlyPlayedToReview } from "./features/recentlyPlayedToReview";
+import { syncPlaylists } from "./features/syncPlaylists";
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -17,7 +18,8 @@ app.get("/", (_req, res) => {
 });
 
 const features = [
-  recentlyPlayedToReview(Number(process.env.POLL_MS ?? 180_000)),
+  recentlyPlayedToReview(Number(process.env.REVIEW_INTERVAL_MS ?? 180_000)),
+  syncPlaylists(Number(process.env.SYNC_INTERVAL_MS ?? 300_000)),
 ];
 
 runScheduler(features).catch((e) => {

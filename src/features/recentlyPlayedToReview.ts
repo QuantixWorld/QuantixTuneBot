@@ -3,7 +3,7 @@ import { makeSpotifyClient } from "../core/spotify";
 import { promises as fs } from "fs";
 import path from "path";
 
-const STATE_PATH = process.env.STATE_PATH || ".review-state.json";
+const STATE_PATH = process.env.REVIEW_STATE_PATH || ".review-state.json";
 const REVIEW_PLAYLIST_NAME = process.env.REVIEW_PLAYLIST_NAME || "review";
 
 type State = { lastAfterMs?: number };
